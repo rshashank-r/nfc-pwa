@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Contact Share PWA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="images/icon-192x192.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/icon-192x192.png">
+</head>
+<body>
+    <header>
+        <h1>Tap & Share Contact</h1>
+        <nav>
+            <button id="navProfileBtn">My Profile</button>
+            <button id="navShareBtn">Share</button>
+            <button id="navReceivedBtn">Received Contacts</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profileSection" class="active">
+            <h2>My Digital Profile</h2>
+            <form id="profileForm">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" required><br>
+
+                <label for="mobile">Mobile:</label>
+                <input type="tel" id="mobile"><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email"><br>
+
+                <label for="company">Company:</label>
+                <input type="text" id="company"><br>
+
+                <label for="jobTitle">Job Title:</label>
+                <input type="text" id="jobTitle"><br>
+
+                <label for="linkedin">LinkedIn URL:</label>
+                <input type="url" id="linkedin"><br>
+
+                <button type="submit">Save Profile</button>
+            </form>
+            <div id="currentProfileDisplay">
+                <h3>Current Profile:</h3>
+                <p><strong>Name:</strong> <span id="displayFullName"></span></p>
+                <p><strong>Mobile:</strong> <span id="displayMobile"></span></p>
+                <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+                <p><strong>Company:</strong> <span id="displayCompany"></span></p>
+                <p><strong>Job Title:</strong> <span id="displayJobTitle"></span></p>
+                <p><strong>LinkedIn:</strong> <span id="displayLinkedIn"></span></p>
+            </div>
+        </section>
+
+        <section id="shareSection">
+            <h2>Share My Profile</h2>
+            <div class="share-options">
+                <button id="shareNFCBtn">Tap to Share (NFC)</button>
+                <p id="nfcStatus"></p>
+            </div>
+            <div class="share-options">
+                <h3>QR Code:</h3>
+                <div id="qrcode"></div>
+                <p>Scan this QR code to get my contact.</p>
+            </div>
+        </section>
+
+        <section id="receivedSection">
+            <h2>Received Contacts</h2>
+            <p id="nfcReceiveStatus"></p>
+            <button id="startNFCReceiveBtn">Start Listening for NFC Contacts</button>
+            <ul id="contactList">
+                </ul>
+        </section>
+
+        <div id="contactDetailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h3>Contact Details</h3>
+                <p><strong>Name:</strong> <span id="modalFullName"></span></p>
+                <p><strong>Mobile:</strong> <span id="modalMobile"></span></p>
+                <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                <p><strong>Company:</strong> <span id="modalCompany"></span></p>
+                <p><strong>Job Title:</strong> <span id="modalJobTitle"></span></p>
+                <p><strong>LinkedIn:</strong> <span id="modalLinkedIn"></span></p>
+                <div class="modal-actions">
+                    <button id="saveToAppBtn">Save to App Contacts</button>
+                    <button id="exportVCFBtn">Export to Device (.vcf)</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
