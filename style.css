@@ -129,6 +129,44 @@ form button[type="submit"]:hover {
     color: #007bff;
 }
 
+/* NEW: Style for the install prompt container and button */
+.install-prompt-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}
+
+#installAppBtn {
+    background-color: #6c757d; /* A subtle grey, can be changed */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    margin-top: 15px;
+}
+
+#installAppBtn:hover {
+    background-color: #5a6268;
+}
+
+#installPromptStatus {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* For the iOS share icon in the prompt */
+#installPromptStatus img {
+    width: 1.2em; /* Adjust size as needed */
+    height: 1.2em;
+    vertical-align: middle;
+    margin: 0 0.2em;
+}
+
 #contactList {
     list-style: none;
     padding: 0;
